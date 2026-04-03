@@ -8,3 +8,4 @@ npm-debug.log
 .vscode
 tools/release/config.json
 .env.test
+test/fixtures/*.html
