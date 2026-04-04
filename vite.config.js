@@ -29,11 +29,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: {
-          host: '0.0.0.0',
-          protocol: 'http:',
-          port: 9998,
-        },
+        target: 'http://localhost:9998',
       },
     },
   },

@@ -9,3 +9,4 @@ npm-debug.log
 tools/release/config.json
 .env.test
 test/fixtures/*.html
+test/screenshots/

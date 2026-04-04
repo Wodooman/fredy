@@ -29,6 +29,8 @@ import WatchlistManagement from './views/listings/management/WatchlistManagement
 import Dashboard from './views/dashboard/Dashboard.jsx';
 import ListingDetail from './views/listings/ListingDetail.jsx';
 import NewsModal from './components/news/NewsModal.jsx';
+import Health from './views/health/Health.jsx';
+import JobHealthDetail from './views/health/JobHealthDetail.jsx';
 
 export default function FredyApp() {
   const actions = useActions();
@@ -100,6 +102,24 @@ export default function FredyApp() {
             <Route path="/listings/listing/:listingId" element={<ListingDetail />} />
             <Route path="/map" element={<MapView />} />
             <Route path="/watchlistManagement" element={<WatchlistManagement />} />
+
+            {/* Health routes (admin-only) */}
+            <Route
+              path="/health"
+              element={
+                <PermissionAwareRoute currentUser={currentUser}>
+                  <Health />
+                </PermissionAwareRoute>
+              }
+            />
+            <Route
+              path="/health/:jobId"
+              element={
+                <PermissionAwareRoute currentUser={currentUser}>
+                  <JobHealthDetail />
+                </PermissionAwareRoute>
+              }
+            />
 
             {/* Permission-aware routes */}
             <Route

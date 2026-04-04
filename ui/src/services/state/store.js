@@ -258,6 +258,45 @@ export const useFredyState = create(
             }
           },
         },
+        healthData: {
+          async getHealthOverview() {
+            try {
+              const response = await xhrGet('/api/admin/health');
+              set((state) => ({ healthData: { ...state.healthData, overview: Object.freeze(response.json) } }));
+            } catch (Exception) {
+              console.error('Error while trying to get resource for api/admin/health. Error:', Exception);
+            }
+          },
+          async getJobHealth(jobId) {
+            try {
+              const response = await xhrGet(`/api/admin/health/${jobId}`);
+              set((state) => ({ healthData: { ...state.healthData, jobDetail: Object.freeze(response.json) } }));
+              return response.json;
+            } catch (Exception) {
+              console.error(`Error while trying to get resource for api/admin/health/${jobId}. Error:`, Exception);
+              throw Exception;
+            }
+          },
+          async getRunDetail(jobId, runId) {
+            try {
+              const response = await xhrGet(`/api/admin/health/${jobId}/runs/${runId}`);
+              set((state) => ({ healthData: { ...state.healthData, runDetail: Object.freeze(response.json) } }));
+              return response.json;
+            } catch (Exception) {
+              console.error('Error while trying to get run detail. Error:', Exception);
+              throw Exception;
+            }
+          },
+          updateJobHealth(jobId, update) {
+            if (!jobId) return;
+            set((state) => {
+              const overview = (state.healthData.overview || []).map((j) =>
+                j.jobId === jobId ? { ...j, ...update } : j,
+              );
+              return { healthData: { ...state.healthData, overview: Object.freeze(overview) } };
+            });
+          },
+        },
         userSettings: {
           async getUserSettings() {
             try {
@@ -334,6 +373,7 @@ export const useFredyState = create(
           maxPrice: 0,
         },
         generalSettings: { settings: {} },
+        healthData: { overview: [], jobDetail: null, runDetail: null },
         userSettings: { settings: {}, loaded: false },
         demoMode: { demoMode: false },
         versionUpdate: {},
@@ -354,6 +394,7 @@ export const useFredyState = create(
         dashboard: { ...effects.dashboard },
         notificationAdapter: { ...effects.notificationAdapter },
         generalSettings: { ...effects.generalSettings },
+        healthData: { ...effects.healthData },
         demoMode: { ...effects.demoMode },
         versionUpdate: { ...effects.versionUpdate },
         tracking: { ...effects.tracking },

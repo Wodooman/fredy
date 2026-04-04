@@ -1,0 +1,76 @@
+.execution-log {
+  &__stages {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__stage {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: var(--semi-color-bg-1);
+    }
+
+    &--failure {
+      border-color: var(--semi-color-danger);
+      background-color: rgba(245, 63, 63, 0.05);
+    }
+  }
+
+  &__stage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__chevron {
+    display: inline-flex;
+    width: 16px;
+    color: var(--semi-color-text-2);
+  }
+
+  &__chevron-placeholder {
+    display: inline-block;
+    width: 16px;
+  }
+
+  &__stage-number {
+    width: 22px;
+    text-align: right;
+    color: var(--semi-color-text-3);
+  }
+
+  &__stage-name {
+    text-transform: capitalize;
+  }
+
+  &__stage-message {
+    display: block;
+    margin-left: 54px;
+    margin-top: 2px;
+  }
+
+  &__details {
+    margin: 8px 0 4px 54px;
+    padding: 8px 12px;
+    background-color: var(--semi-color-bg-1);
+    border: 1px solid var(--semi-color-border);
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  &__total {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--semi-color-border);
+    text-align: right;
+  }
+}

@@ -50,6 +50,7 @@ same listing twice.
 -   🎯 Easy to use thanks to a user-friendly Web UI
 -   🔄 Deduplication across platforms
 -   ⏱️ Customizable search intervals
+-   🩺 Health monitoring with execution logs and status tracking
 
 ------------------------------------------------------------------------
 
@@ -168,6 +169,14 @@ For more information on how to set it up and use it, please refer to the [MCP Re
 Fredy can route all outbound traffic through an HTTP proxy — both plain HTTP requests and Puppeteer browser sessions. Set `FREDY_PROXY_URL` as an environment variable or configure it in the Web UI settings.
 
 See the [Proxy Documentation](doc/PROXY.md) for setup instructions, Docker examples, and how to run provider tests with a proxy.
+
+------------------------------------------------------------------------
+
+## 🩺 Health Monitoring
+
+Fredy tracks the last 20 runs of every job, giving admins at-a-glance visibility into scraping health. Each job gets a color-coded status — green (healthy), yellow (degraded), or red (failing) — with drill-down into per-provider execution logs.
+
+See the [Health Monitoring Documentation](doc/HEALTH.md) for details on the Health page, status colors, execution logs, and API endpoints.
 
 ------------------------------------------------------------------------
 
