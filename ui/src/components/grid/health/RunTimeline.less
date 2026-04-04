@@ -1,0 +1,35 @@
+.run-timeline {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  &__dot {
+    display: inline-block;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+
+    &--success {
+      background-color: var(--semi-color-success);
+    }
+
+    &--failure {
+      background-color: var(--semi-color-danger);
+    }
+
+    &--empty {
+      background-color: transparent;
+      border: 1px solid var(--semi-color-text-3);
+      opacity: 0.4;
+    }
+
+    &:hover:not(&--empty) {
+      transform: scale(1.4);
+    }
+  }
+
+  &__tooltip {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}

@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from 'react';
 import { Button, Nav } from '@douyinfe/semi-ui-19';
-import { IconStar, IconSetting, IconTerminal, IconHistogram, IconSidebar } from '@douyinfe/semi-icons';
+import { IconStar, IconSetting, IconTerminal, IconHistogram, IconSidebar, IconActivity } from '@douyinfe/semi-icons';
 import logoWhite from '../../assets/logo_white.png';
 import heart from '../../assets/heart.png';
 import Logout from '../logout/Logout.jsx';
@@ -40,6 +40,10 @@ export default function Navigation({ isAdmin }) {
       ],
     },
   ];
+
+  if (isAdmin) {
+    items.push({ itemKey: '/health', text: 'Health', icon: <IconActivity /> });
+  }
 
   if (isAdmin) {
     items.push({

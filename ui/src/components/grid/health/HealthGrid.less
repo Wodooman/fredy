@@ -1,0 +1,80 @@
+.health-grid {
+  &__filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    background-color: rgba(36, 36, 36, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--semi-color-border);
+    box-shadow: 0 0 15px -3px rgb(78 78 78 / 50%);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px -3px rgb(78 78 78 / 70%);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  &__status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &__stats {
+    margin-bottom: 12px;
+  }
+
+  &__stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 500;
+
+    &--blue {
+      color: rgb(54, 131, 220);
+    }
+
+    &--green {
+      color: var(--semi-color-success);
+    }
+
+    &--orange {
+      color: rgb(255, 125, 0);
+    }
+
+    &--red {
+      color: var(--semi-color-danger);
+    }
+
+    &--grey {
+      color: var(--semi-color-text-3);
+    }
+  }
+
+  &__timeline {
+    padding-top: 4px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+}
