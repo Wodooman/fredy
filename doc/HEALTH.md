@@ -51,12 +51,18 @@ The overview shows:
 - **Job cards** — Each job shows its status dot, name, last run time, listings found/new from the latest run, failure count, and a timeline of the last 20 runs as colored dots
 - **Filters** — Search by name, filter by status (All / Healthy / Degraded / Failing), sort by severity, name, last run, or failure count
 
+![Health Overview](health/03-health-overview-full.png)
+
+![KPI Cards](health/04-health-kpi-cards.png)
+
 ### Job Detail
 
 Click a job card to see its full run history:
 
 - **Header** — Job name, health status badge, enabled/disabled, provider count, last run time, and the 20-dot timeline
 - **Run list** — Each run shows timestamp, duration, total listings found/new, provider badges (green/red), and a summary line. Runs are collapsed by default.
+
+![Job Health Detail](health/08-job-detail-page.png)
 
 ### Expanding a Run
 
@@ -66,6 +72,8 @@ Click a run to expand it and see per-provider details:
 - Listings found and new listings count
 - Error message (for failed providers, shown in a red banner)
 - **View Log** button to open the full execution trace
+
+![Expanded Run with Provider Details](health/10-run-card-expanded-with-providers.png)
 
 ### Execution Log
 
@@ -86,6 +94,8 @@ The execution log shows the complete pipeline trace for a single provider run �
 | 11 | Notification | Alerts sent via configured adapters |
 
 Each stage shows its status (success/failure/skipped), duration, and a summary message. Click a stage to expand its raw details.
+
+![Execution Log Modal](health/modal-collapsed-crop.png)
 
 ### Real-Time Updates
 
